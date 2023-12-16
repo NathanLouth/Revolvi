@@ -1,0 +1,78 @@
+﻿<Window x:Class="Revolvi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Renovare"
+        mc:Ignorable="d"
+        Height="450" Width="350"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        ResizeMode="NoResize" 
+        Background="Black"
+        Title="Revolvi"
+        >
+    <Grid>
+        <Grid Margin="0,0,0,396" MouseDown="Window_MouseDown">
+            <Label Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="350" Height="54" Background="#FF103D4C"/>
+        </Grid>
+        <Grid>
+            <Image x:Name="CloseIcon" Margin="306,10,10,406" Source="/img/exitIcon.png" MouseDown="CloseWindow" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Cursor" Value="Hand" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+            <Label Content="Revolvi" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift" FontSize="24"/>
+            <Label Content="Refresh Tab" HorizontalAlignment="Left" Margin="70,80,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-1.063,0.616" FontSize="14"/>
+            <Label Content="Rotate Tabs" HorizontalAlignment="Left" Margin="70,118,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+            <Label Content="Run Only When Inactive" HorizontalAlignment="Left" Margin="70,157,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+            <Label Content="Delay (sec):" HorizontalAlignment="Left" Margin="31,205,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+            <Slider x:Name="DelaySlider" HorizontalAlignment="Left" Margin="30,251,0,0" VerticalAlignment="Top" Width="221" ValueChanged="Slider_ValueChanged" Value="60" Maximum="300" Minimum="30"/>
+            <Label x:Name="DelaySecLabel" Content="60" HorizontalAlignment="Left" Margin="284,246,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+            <CheckBox x:Name="Item_Refresh" Content="CheckBox" HorizontalAlignment="Left" Margin="30,85,0,0" VerticalAlignment="Top" Width="18" IsChecked="True"/>
+            <CheckBox x:Name="Item_Rotate" Content="CheckBox" HorizontalAlignment="Left" Margin="30,124,0,0" VerticalAlignment="Top" Width="18" IsChecked="True"/>
+            <CheckBox x:Name="Item_Inactive" Content="CheckBox" HorizontalAlignment="Left" Margin="30,163,0,0" VerticalAlignment="Top" Width="18" IsChecked="True"/>
+            <Button x:Name="MainButton" Content="Start" HorizontalAlignment="Center" Margin="0,359,0,0" VerticalAlignment="Top" Height="56" Width="330" Background="#FF103D4C" BorderBrush="Black" FontSize="22" FontFamily="Bahnschrift" Foreground="White" Click="MainButton_Click"/>
+            <Label Content="About" HorizontalAlignment="Left" Margin="10,415,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="47" MouseDown="AboutClicked">
+                <Label.Style>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Cursor" Value="Hand" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+            <Label Content="Help" HorizontalAlignment="Left" Margin="293,415,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="47">
+                <Label.Style>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Cursor" Value="Hand" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+        </Grid>
+    </Grid>
+</Window>
