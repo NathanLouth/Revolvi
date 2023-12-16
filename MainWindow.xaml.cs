@@ -62,7 +62,7 @@ namespace Revolvi
 
         private void AboutClicked(object sender, MouseButtonEventArgs e)
         {
-            System.Windows.MessageBox.Show("V1.0.0                                 ", "About Revolvi", MessageBoxButton.OK);
+            System.Windows.MessageBox.Show("V1.0.1                                 ", "About Revolvi", MessageBoxButton.OK);
         }
 
         private void Item_Refresh_CheckedChanged(object sender, EventArgs e)

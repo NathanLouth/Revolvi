@@ -49,7 +49,7 @@
             <CheckBox x:Name="Item_Rotate" Content="CheckBox" HorizontalAlignment="Left" Margin="30,124,0,0" VerticalAlignment="Top" Width="18" IsChecked="True"/>
             <CheckBox x:Name="Item_Inactive" Content="CheckBox" HorizontalAlignment="Left" Margin="30,163,0,0" VerticalAlignment="Top" Width="18" IsChecked="True"/>
             <Button x:Name="MainButton" Content="Start" HorizontalAlignment="Center" Margin="0,359,0,0" VerticalAlignment="Top" Height="56" Width="330" Background="#FF103D4C" BorderBrush="Black" FontSize="22" FontFamily="Bahnschrift" Foreground="White" Click="MainButton_Click"/>
-            <Label Content="About" HorizontalAlignment="Left" Margin="10,415,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="47" MouseDown="AboutClicked">
+            <Label Content="About" HorizontalAlignment="Left" Margin="16,415,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="46" MouseDown="AboutClicked">
                 <Label.Style>
                     <Style TargetType="{x:Type Label}">
                         <Setter Property="Cursor" Value="Hand" />
