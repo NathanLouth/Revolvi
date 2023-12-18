@@ -19,17 +19,26 @@ using System.Windows.Forms;
 
 namespace Revolvi
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern EXECUTION_STATE SetThreadExecutionState(EXECUTION_STATE esFlags);
+
+        [FlagsAttribute]
+        public enum EXECUTION_STATE : uint
+        {
+            ES_AWAYMODE_REQUIRED = 0x00000040,
+            ES_CONTINUOUS = 0x80000000,
+            ES_DISPLAY_REQUIRED = 0x00000002,
+            ES_SYSTEM_REQUIRED = 0x00000001
+        }
 
         bool var_refresh = true;
         bool var_rotate = true;
         bool var_inactive = true;
         int var_delay = 60;
         bool var_notRunning = true;
+        bool var_Awake = true;
         private CancellationTokenSource _cts;
 
         public MainWindow()
@@ -42,6 +51,11 @@ namespace Revolvi
             if (e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();
+            }
+
+            if (e.ChangedButton == MouseButton.Right)
+            {
+                this.WindowState = WindowState.Minimized;
             }
         }
 
@@ -62,10 +76,10 @@ namespace Revolvi
 
         private void AboutClicked(object sender, MouseButtonEventArgs e)
         {
-            System.Windows.MessageBox.Show("V1.0.1                                 ", "About Revolvi", MessageBoxButton.OK);
+            System.Windows.MessageBox.Show("V1.0.2                                 ", "About Revolvi", MessageBoxButton.OK);
         }
 
-        private void Item_Refresh_CheckedChanged(object sender, EventArgs e)
+        private void Item_Refresh_CheckedChanged(object sender, RoutedEventArgs e)
         {
             if (Item_Refresh.IsChecked == true)
             {
@@ -77,7 +91,7 @@ namespace Revolvi
             }
         }
 
-        private void Item_Rotate_CheckedChanged(object sender, EventArgs e)
+        private void Item_Rotate_CheckedChanged(object sender, RoutedEventArgs e)
         {
             if (Item_Rotate.IsChecked == true)
             {
@@ -90,15 +104,28 @@ namespace Revolvi
 
         }
 
-        private void Item_Inactive_CheckedChanged(object sender, EventArgs e)
+        private void Item_Inactive_CheckedChanged(object sender, RoutedEventArgs e)
         {
-            if (Item_Inactive.IsChecked == true)
+           if (Item_Inactive.IsChecked == true)
             {
                 var_inactive = true;
             }
             else
             {
                 var_inactive = false;
+            }
+
+        }
+
+        private void Item_Awake_CheckedChanged(object sender, RoutedEventArgs e)
+        {
+           if (Item_Awake.IsChecked == true)
+            {
+                var_Awake = true;
+            }
+            else
+            {
+                var_Awake = false;
             }
 
         }
@@ -150,6 +177,8 @@ namespace Revolvi
                 Item_Rotate.IsEnabled = false;
                 DelaySlider.IsEnabled = false;
                 Item_Inactive.IsEnabled = false;
+                Item_Awake.IsEnabled = false;
+                if (var_Awake) { SetThreadExecutionState(EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS); }
                 MainButton.Content = "Stop";
                 var_notRunning = false;
             }
@@ -159,13 +188,20 @@ namespace Revolvi
                 {
                     _cts.Cancel();
                 }
+                SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS);
                 Item_Refresh.IsEnabled = true;
                 Item_Rotate.IsEnabled = true;
                 DelaySlider.IsEnabled = true;
                 Item_Inactive.IsEnabled = true;
+                Item_Awake.IsEnabled = true;
                 MainButton.Content = "Start";
                 var_notRunning = true;
             }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS);
         }
     }
 
@@ -192,10 +228,7 @@ namespace Revolvi
 
             return ((uint)Environment.TickCount - lastInPut.dwTime);
         }
-        /// <summary>
-        /// Get the Last input time in milliseconds
-        /// </summary>
-        /// <returns></returns>
+
         public static long GetLastInputTime()
         {
             LASTINPUTINFO lastInPut = new LASTINPUTINFO();

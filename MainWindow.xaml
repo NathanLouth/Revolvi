@@ -11,7 +11,7 @@
         AllowsTransparency="True"
         ResizeMode="NoResize" 
         Background="Black"
-        Title="Revolvi"
+        Title="Revolvi" Closed="Window_Closed"
         >
     <Grid>
         <Grid Margin="0,0,0,396" MouseDown="Window_MouseDown">
@@ -42,12 +42,12 @@
             <Label Content="Refresh Tab" HorizontalAlignment="Left" Margin="70,80,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-1.063,0.616" FontSize="14"/>
             <Label Content="Rotate Tabs" HorizontalAlignment="Left" Margin="70,118,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
             <Label Content="Run Only When Inactive" HorizontalAlignment="Left" Margin="70,157,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
-            <Label Content="Delay (sec):" HorizontalAlignment="Left" Margin="31,205,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
-            <Slider x:Name="DelaySlider" HorizontalAlignment="Left" Margin="30,251,0,0" VerticalAlignment="Top" Width="221" ValueChanged="Slider_ValueChanged" Value="60" Maximum="300" Minimum="30"/>
-            <Label x:Name="DelaySecLabel" Content="60" HorizontalAlignment="Left" Margin="284,246,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
-            <CheckBox x:Name="Item_Refresh" Content="CheckBox" HorizontalAlignment="Left" Margin="30,85,0,0" VerticalAlignment="Top" Width="18" IsChecked="True"/>
-            <CheckBox x:Name="Item_Rotate" Content="CheckBox" HorizontalAlignment="Left" Margin="30,124,0,0" VerticalAlignment="Top" Width="18" IsChecked="True"/>
-            <CheckBox x:Name="Item_Inactive" Content="CheckBox" HorizontalAlignment="Left" Margin="30,163,0,0" VerticalAlignment="Top" Width="18" IsChecked="True"/>
+            <Label Content="Delay (sec):" HorizontalAlignment="Left" Margin="31,251,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+            <Slider x:Name="DelaySlider" HorizontalAlignment="Left" Margin="30,296,0,0" VerticalAlignment="Top" Width="221" ValueChanged="Slider_ValueChanged" Value="60" Maximum="300" Minimum="30"/>
+            <Label x:Name="DelaySecLabel" Content="60" HorizontalAlignment="Left" Margin="284,291,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+            <CheckBox x:Name="Item_Refresh" Content="CheckBox" HorizontalAlignment="Left" Margin="30,85,0,0" VerticalAlignment="Top" Width="18" IsChecked="True" Click="Item_Refresh_CheckedChanged"/>
+            <CheckBox x:Name="Item_Rotate" Content="CheckBox" HorizontalAlignment="Left" Margin="30,124,0,0" VerticalAlignment="Top" Width="18" IsChecked="True" Click="Item_Rotate_CheckedChanged"/>
+            <CheckBox x:Name="Item_Inactive" Content="CheckBox" HorizontalAlignment="Left" Margin="30,163,0,0" VerticalAlignment="Top" Width="18" IsChecked="True" Click="Item_Inactive_CheckedChanged"/>
             <Button x:Name="MainButton" Content="Start" HorizontalAlignment="Center" Margin="0,359,0,0" VerticalAlignment="Top" Height="56" Width="330" Background="#FF103D4C" BorderBrush="Black" FontSize="22" FontFamily="Bahnschrift" Foreground="White" Click="MainButton_Click"/>
             <Label Content="About" HorizontalAlignment="Left" Margin="16,415,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="46" MouseDown="AboutClicked">
                 <Label.Style>
@@ -73,6 +73,8 @@
                     </Style>
                 </Label.Style>
             </Label>
+            <Label Content="Keep PC Awake" HorizontalAlignment="Left" Margin="70,196,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+            <CheckBox x:Name="Item_Awake" Content="CheckBox" HorizontalAlignment="Left" Margin="30,202,0,0" VerticalAlignment="Top" Width="18" IsChecked="True" Click="Item_Awake_CheckedChanged"/>
         </Grid>
     </Grid>
 </Window>
