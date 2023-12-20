@@ -73,8 +73,12 @@
                     </Style>
                 </Label.Style>
             </Label>
-            <Label Content="Keep PC Awake" HorizontalAlignment="Left" Margin="70,196,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
-            <CheckBox x:Name="Item_Awake" Content="CheckBox" HorizontalAlignment="Left" Margin="30,202,0,0" VerticalAlignment="Top" Width="18" IsChecked="True" Click="Item_Awake_CheckedChanged"/>
+            <Label Content="Keep PC Awake" HorizontalAlignment="Left" Margin="71,202,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+            <CheckBox x:Name="Item_Awake" Content="CheckBox" HorizontalAlignment="Left" Margin="31,209,0,0" VerticalAlignment="Top" Width="18" IsChecked="True" Click="Item_Awake_CheckedChanged"/>
+            <Ellipse x:Name="TaskIND" HorizontalAlignment="Left" Height="14" Margin="309,82,0,0" VerticalAlignment="Top" Width="14" Fill="DarkRed"/>
+            <Ellipse x:Name="AwakeIND" HorizontalAlignment="Left" Height="14" Margin="309,209,0,0" VerticalAlignment="Top" Width="14" Fill="DarkRed"/>
+            <Rectangle Height="116" Margin="20,75,20,0" Stroke="White" VerticalAlignment="Top"/>
+            <Rectangle HorizontalAlignment="Center" Height="32" Margin="0,200,0,0" Stroke="White" VerticalAlignment="Top" Width="310"/>
         </Grid>
     </Grid>
 </Window>

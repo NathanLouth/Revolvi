@@ -76,7 +76,7 @@ namespace Revolvi
 
         private void AboutClicked(object sender, MouseButtonEventArgs e)
         {
-            System.Windows.MessageBox.Show("V1.0.2                                 ", "About Revolvi", MessageBoxButton.OK);
+            System.Windows.MessageBox.Show("V1.0.4                                 ", "About Revolvi", MessageBoxButton.OK);
         }
 
         private void Item_Refresh_CheckedChanged(object sender, RoutedEventArgs e)
@@ -172,13 +172,13 @@ namespace Revolvi
             if (var_notRunning)
             {
                 _cts = new CancellationTokenSource();
-                BackGroundTask(_cts.Token, var_refresh, var_rotate, var_inactive, var_delay);
+                if(var_refresh || var_rotate) { TaskIND.Fill = Brushes.DarkGreen; BackGroundTask(_cts.Token, var_refresh, var_rotate, var_inactive, var_delay); }
                 Item_Refresh.IsEnabled = false;
                 Item_Rotate.IsEnabled = false;
                 DelaySlider.IsEnabled = false;
                 Item_Inactive.IsEnabled = false;
                 Item_Awake.IsEnabled = false;
-                if (var_Awake) { SetThreadExecutionState(EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS); }
+                if (var_Awake) { AwakeIND.Fill = Brushes.DarkGreen; SetThreadExecutionState(EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS); }
                 MainButton.Content = "Stop";
                 var_notRunning = false;
             }
@@ -189,6 +189,8 @@ namespace Revolvi
                     _cts.Cancel();
                 }
                 SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS);
+                AwakeIND.Fill = Brushes.DarkRed;
+                TaskIND.Fill = Brushes.DarkRed;
                 Item_Refresh.IsEnabled = true;
                 Item_Rotate.IsEnabled = true;
                 DelaySlider.IsEnabled = true;
