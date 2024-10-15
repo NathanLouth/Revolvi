@@ -1,6 +1,6 @@
 # Revolvi
 
-Revolvi is a WPF application designed to automate tasks on your Windows system based on user inactivity. It allows users to perform actions such as refreshing a page or rotating windows after a specified period of inactivity.
+Revolvi is a WPF application designed to automate tasks on your Windows system based on user inactivity. It allows users to perform actions such as refreshing a page or rotating browser tabs after a specified period of inactivity.
 
 ![Image of Revolvi Program](https://github.com/NathanLouth/Revolvi/blob/main/img/Example.png?raw=true)
 
