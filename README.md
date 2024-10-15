@@ -12,6 +12,12 @@ Revolvi is a WPF application designed to automate tasks on your Windows system b
 
 ## Installation
 
+1. Download the latest "Revolvi_Installer.msi" MSI from the Releases section
+2. Install the MSI
+3. Run Revolvi
+
+## Build Project
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/revolvi.git
@@ -61,9 +67,9 @@ If you would like to contribute to Revolvi, please fork the repository and submi
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## Contact
 
-For questions or feedback, please reach out to [your-email@example.com](mailto:your-email@example.com).
+For questions or feedback, please reach out.
 
