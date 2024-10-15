@@ -20,7 +20,7 @@ Revolvi is a WPF application designed to automate tasks on your Windows system b
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/revolvi.git
+   git clone https://github.com/NathanLouth/Revolvi.git
    ```
 2. Open the solution file in Visual Studio.
 3. Build the project to restore dependencies and compile the application.
