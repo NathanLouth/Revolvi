@@ -6,7 +6,7 @@ Revolvi is a WPF application designed to automate tasks on your Windows system b
 
 ## Features
 
-- **Automatic Actions**: Automatically refresh or rotate windows based on user-defined parameters.
+- **Automatic Actions**: Automatically refresh or rotate browser tabs based on user-defined parameters.
 - **Idle Time Detection**: Monitors system idle time to determine when to trigger actions.
 - **User-Friendly Interface**: Simple and intuitive user interface built using WPF.
 
@@ -35,11 +35,8 @@ Revolvi is a WPF application designed to automate tasks on your Windows system b
 
 ### Controls
 
-- **Left Mouse Button**: Drag the window to move.
-- **Right Mouse Button**: Minimize the window.
 - **Slider**: Adjust the delay before actions are executed.
 - **Check Boxes**: Toggle actions (refresh, rotate, inactive, awake).
-- **About**: Displays information about the application.
 
 ## Code Overview
 
